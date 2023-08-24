@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'package:tarefas/tarefa_state.dart';
 import 'tarefa_model.dart';
 
 class TarefasForm extends StatefulWidget {
-  const TarefasForm({super.key});
+  final TarefaState state;
+  const TarefasForm({super.key, required this.state});
 
   @override
   State<TarefasForm> createState() => _TarefasFormState();
