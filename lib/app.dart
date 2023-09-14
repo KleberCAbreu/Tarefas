@@ -10,13 +10,14 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     TarefaState state = TarefaState();
 
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.lime),
-      routes: {
-        "/": (context) => TarefasPage(state: state,),
-        "/add": (context) => TarefasNovo(state: state,)
-      },
+      theme: ThemeData(primarySwatch: Colors.orange),
+      initialRoute: "/",
+      routes: {"/":(context)=>TarefasPage(state: state,),
+               "/add":(context)=>TarefasNovo(state: state,)},
+      
     );
   }
 }
