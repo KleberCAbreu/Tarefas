@@ -15,13 +15,15 @@ class TarefasPage extends StatelessWidget {
       body: FutureBuilder(
         future: helper.listar(),
         builder: (context, snapshot) =>
+        // 1- sem dados (lista vazia, nao estada carregando)
+        // 2- consultando lista vazia/3-lista recuperada
         !snapshot.hasData?
            Center(
              child: CircularProgressIndicator(valueColor: 
                 AlwaysStoppedAnimation(Colors.blue),),
            ):
         snapshot.data!.isEmpty?listaVazia():
-        TarefasList(tarefas: snapshot.data),),
+        TarefasList(tarefas: snapshot.data!),),
       floatingActionButton: 
         FloatingActionButton(onPressed: (){
           Navigator.of(context).pushNamed("/add");
