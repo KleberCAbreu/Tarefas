@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tarefas/tarefa_model.dart';
 import 'package:tarefas/tarefa_page.dart';
 import 'package:tarefas/tarefa_state.dart';
+import 'package:tarefas/tarefas_edit.dart';
 import 'package:tarefas/tarefas_helper.dart';
 import 'package:tarefas/tarefas_helper.impl.dart';
 import 'package:tarefas/tarefas_novo.dart';
@@ -15,10 +17,15 @@ class App extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.orange),
+      theme: ThemeData(primarySwatch: Colors.lime),
       initialRoute: "/",
       routes: {"/":(context)=>TarefasPage(helper: helper,),
-               "/add":(context)=>TarefasNovo(state: state,helper: helper,)},
+               "/add":(context)=>TarefasNovo(state: state,helper: helper,),
+                "/edit":(context) {
+                  state.tarefa = ModalRoute.of(context)!.settings.arguments as Tarefa;
+                  return TarefasEdit(state: state,helper: helper,);
+                }
+                },
       
     );
   }
